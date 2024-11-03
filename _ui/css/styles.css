@@ -1,0 +1,193 @@
+/* Variables globales */
+:root {
+    --primary-bg: #191c1f;
+    --secondary-bg: #25282b;
+    --accent-color: #4E4F4F;
+    --text-primary: #fff;
+    --text-secondary: #9e9e9e;
+    --animation-duration: 25s;
+    --social-item-height: 45px;
+}
+
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Styles de base */
+body {
+    background: var(--primary-bg);
+    color: var(--text-primary);
+    font-family: 'Spartan', sans-serif;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    cursor: none;
+}
+
+/* Layout principal */
+.load {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Boîte centrale */
+.load--box {
+    text-align: center;
+    z-index: 1;
+    position: relative;
+}
+
+.load--title {
+    font-size: clamp(2rem, 5vw, 3.125rem);
+    font-weight: 800;
+    margin-bottom: 0.625rem;
+}
+
+.load--subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    font-weight: 300;
+    color: var(--text-secondary);
+}
+
+/* Liste sociale */
+.social--list {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    list-style: none;
+    z-index: 9;
+}
+
+.social--list li {
+    margin: 5px 0;
+    transform: translateX(calc(100% - var(--social-item-height)));
+    transition: transform 0.3s ease;
+}
+
+.social--list li:hover {
+    transform: translateX(0);
+}
+
+.social--list a {
+    background: var(--secondary-bg);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    padding: 0 1.875rem;
+    height: var(--social-item-height);
+    text-decoration: none;
+    border-radius: 4px 0 0 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
+    transition: background-color 0.3s ease;
+}
+
+.social--list a:hover {
+    background: var(--accent-color);
+}
+
+.social--list i {
+    width: var(--social-item-height);
+    margin-right: 0.9375rem;
+    position: relative;
+}
+
+/* Texte de chargement */
+.loading-text {
+    position: fixed;
+    left: 5%;
+    bottom: 5%;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.loading-text i {
+    color: var(--accent-color);
+    margin-right: 0.3125rem;
+}
+
+/* Curseur personnalisé */
+#cursor {
+    width: 25px;
+    height: 25px;
+    position: fixed;
+    pointer-events: none;
+    z-index: 10000;
+    will-change: transform;
+}
+
+/* Cercles d'animation */
+.circles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.circles li {
+    position: absolute;
+    background: #f7f7f7;
+    opacity: 0.06;
+    animation: float var(--animation-duration) linear infinite;
+    bottom: -100px;
+    border-radius: 50%;
+}
+
+/* Audio player */
+#audio-player {
+    position: fixed;
+    left: 50%;
+    bottom: 1.25rem;
+    transform: translateX(-50%);
+    width: 15.625rem;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+#audio-player:hover {
+    opacity: 1;
+}
+
+/* Animation des cercles */
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.06;
+    }
+    100% {
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .social--list {
+        display: none;
+    }
+    
+    .loading-text {
+        width: 100%;
+        left: 0;
+        text-align: center;
+    }
+}
+
+@media (max-height: 600px) {
+    .load--title {
+        font-size: 2rem;
+    }
+    
+    .load--subtitle {
+        font-size: 1rem;
+    }
+}

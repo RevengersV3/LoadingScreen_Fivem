@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LoadingScreen Optimisé</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@300;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/solid.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <img id="cursor" src="https://i.ibb.co/WgnZFT6/cursor.png" alt="cursor" border="0"></a> 
+    
+    <div class="load">
+        <div class="load--box">
+            <h1 class="load--title">Kamion</h1>
+            <p class="load--subtitle">Rôleplay</p>
+        </div>
+        
+        <ul class="social--list">
+            <li>
+                <a href="https://discord.gg/UzdM82bD" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-discord"></i>Discord
+                </a>
+            </li>
+        </ul>
+
+        <div class="loading-text">
+            <i class="fas fa-spinner fa-spin"></i>
+            Chargement de la map...
+        </div>
+
+        <ul class="circles" id="animationCircles"></ul>
+    </div>
+
+    <audio id="audio-player" autoplay>
+        <source src="music/music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>
